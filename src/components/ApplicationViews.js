@@ -1,4 +1,7 @@
 import React from "react";
+import { Route } from "react-router-dom";
+import { GameProvider } from "./game/GameProvider";
+import { GameList } from "./game/GameList";
 
 export const ApplicationViews = () => {
   return (
@@ -8,7 +11,11 @@ export const ApplicationViews = () => {
           margin: "5rem 2rem",
           backgroundColor: "lightgoldenrodyellow",
         }}
-      ></main>
+      >
+        <GameProvider>
+          <Route exact path="/" render={(props) => <GameList {...props} />} />
+        </GameProvider>
+      </main>
     </>
   );
 };
